@@ -5,7 +5,7 @@ on:
     branches:
       - master
     tags:
-      - '*'
+      - '[0-9]+.[0-9]+.[0-9]+'
   pull_request:
 
 jobs:
@@ -21,23 +21,25 @@ jobs:
           - arch: arm64
             runner: ubuntu-24.04-arm
     runs-on: ${{ matrix.runner }}
+    env:
+      ARCH: ${{ matrix.arch }}
+      RELEASE_VERSION: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || '' }}
     steps:
       - uses: actions/checkout@v6
+      - name: Check release tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: .github/actions/check-release-tag.sh
       - uses: docker/login-action@v3
         if: github.event_name != 'pull_request'
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: build and test
-        env:
-          ARCH: ${{ matrix.arch }}
         run: |
           make
           make test
       - name: push
         if: github.event_name != 'pull_request'
-        env:
-          ARCH: ${{ matrix.arch }}
         run: make push
 
   push:
@@ -45,10 +47,31 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - build
+    env:
+      RELEASE_VERSION: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || '' }}
     steps:
       - uses: actions/checkout@v6
       - uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      - uses: ./.github/actions
+      - name: Push multi-arch image
+        run: make buildx-imagetools-create
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    needs:
+      - push
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          # Keep the annotated tag rather than fetching the event commit into its ref.
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: .github/actions/github-release.sh

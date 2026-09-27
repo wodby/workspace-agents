@@ -1,9 +1,0 @@
-name: push
-description: combine multi-arch image and push
-runs:
-  using: "composite"
-  steps:
-    - name: Push multi-arch tags
-      run: |
-        . $GITHUB_ACTION_PATH/release.sh
-      shell: bash

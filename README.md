@@ -33,12 +33,25 @@ and you can install them yourself.
 
 ## Tags
 
-* `1`, `latest`: builds of the `master` branch.
-* `1-rN`: releases, from the `rN` git tags. Pin a release by digest.
+* `X.Y.Z`: releases, from the matching Git tags. Each release also gets a GitHub Release with its notes. Pin a
+  release by digest.
+* `latest`: builds of the `master` branch.
+
+Releases use semantic versions:
+
+* The major version changes when workspaces must change how they use the image: the installer, the wrappers in `bin/`
+  or the `/opt/wodby/agents` layout.
+* The minor version adds tools or features.
+* The patch version updates the bundled tools or fixes the image.
 
 All images are built for `linux/amd64` and `linux/arm64`.
 
 ## Updating the agents
+
+The [Docker images auto updater](https://github.com/wodby/images) checks for new releases daily. When a tool
+changes, it pins the new versions, pushes them to `master` and tags a patch release.
+
+To update by hand:
 
 ```bash
 make update
