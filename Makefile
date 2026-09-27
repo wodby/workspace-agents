@@ -1,12 +1,13 @@
 -include env_make
 
-# VERSION is the major version of the image layout that workspace runners rely on: the installer and
-# the wrappers in bin/.
-VERSION ?= 1
-
 REPO = wodby/workspace-agents
 
-TAG ?= $(VERSION)
+# RELEASE_VERSION is a semantic version from a release tag. Other builds publish latest.
+ifneq ($(RELEASE_VERSION),)
+	TAG ?= $(RELEASE_VERSION)
+else
+	TAG ?= latest
+endif
 IMAGETOOLS_TAG ?= $(TAG)
 
 ifneq ($(ARCH),)
@@ -28,8 +29,8 @@ push:
 
 buildx-imagetools-create:
 	docker buildx imagetools create -t $(REPO):$(IMAGETOOLS_TAG) \
-		$(REPO):$(TAG)-amd64 \
-		$(REPO):$(TAG)-arm64
+		$(REPO):$(IMAGETOOLS_TAG)-amd64 \
+		$(REPO):$(IMAGETOOLS_TAG)-arm64
 
 update:
 	./scripts/update.sh
