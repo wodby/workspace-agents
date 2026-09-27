@@ -1,0 +1,16 @@
+#!/bin/sh
+# Claude Code for Wodby workspaces. The image doesn't include Claude Code: the first run downloads the
+# pinned build from Anthropic into your private home and verifies it. Updates come with the workspace
+# image, so this copy doesn't update itself. Install your own copy in ~/.local/bin to manage versions.
+
+root="${WODBY_AGENTS_ROOT:-/opt/wodby/agents}"
+. "${root}/libexec/agent.sh"
+. "${root}/versions.env"
+
+dir="${XDG_DATA_HOME:-${HOME}/.local/share}/wodby-agents/claude/${CLAUDE_CODE_VERSION}"
+if [ ! -x "${dir}/claude" ]; then
+    "${root}/libexec/install-claude" "${dir}" || exit 1
+fi
+
+export DISABLE_AUTOUPDATER=1 DISABLE_INSTALLATION_CHECKS=1 USE_BUILTIN_RIPGREP=0
+exec "${dir}/claude" "$@"

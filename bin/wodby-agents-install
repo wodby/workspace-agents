@@ -1,0 +1,11 @@
+#!/bin/sh
+# Copies the agent tools into DIR, normally an empty volume that a workspace runner mounts at
+# /opt/wodby/agents. The wrappers in DIR/bin expect that location unless WODBY_AGENTS_ROOT says otherwise.
+
+set -eu
+
+dir="${1:-/opt/wodby/agents}"
+
+cp -RP /usr/share/wodby-agents/. "${dir}/"
+echo "Installed workspace agents into ${dir}:"
+cat "${dir}/versions.env"

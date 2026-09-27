@@ -1,0 +1,12 @@
+#!/bin/sh
+# Codex pre-installed by Wodby. Codex is a static build, so it runs on any Linux runtime image.
+
+root="${WODBY_AGENTS_ROOT:-/opt/wodby/agents}"
+
+case ":${PATH}:" in
+*":${root}/path:"*) ;;
+*) PATH="${PATH}:${root}/path" ;;
+esac
+export PATH
+
+exec "${root}/codex/bin/codex" "$@"
