@@ -1,5 +1,5 @@
-ba22ce4b5744c6016e3076ccbd692a059fc4e9f1592f21361859a73938f4e722  claude-2.1.287-linux-x64-musl
-83d95a9fa28b1fadd8c012fda873aed8f8998e23dfabe6dd4efd05bcdd7383ba  claude-2.1.287-linux-arm64-musl
+d23f28ef84f5459a25d2d4cf999a7debd41df83507160446983d4ca65554e50f  claude-2.1.292-linux-x64-musl
+a17c919b13df206371a55de716ab81e3dcd7c039f66b79003ed87b7665fdc15f  claude-2.1.292-linux-arm64-musl
 a676f5722aae0d86cbe3764332f08eab1fdd89dc0a300b3ad4ffbf48611fa3e3  codex-package-0.162.1-x86_64-unknown-linux-musl.tar.gz
 53a9ce0b94beb27a63fdeb2f7704d95199e17b3898aa33b60461a1a93ac0d88b  codex-package-0.162.1-aarch64-unknown-linux-musl.tar.gz
 043193a55bcb67c524426132870ab7f960da664ad20a5327e8e03730ef14a869  opencode-1.19.0-linux-x64-musl.tar.gz
