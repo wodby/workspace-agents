@@ -1,7 +1,7 @@
 cd40dd327145ee47aa0deacd571801c1d782388f709d71242eee6b91de8ed11f  claude-2.1.311-linux-x64-musl
 172150e3f9ea07e8e2e2e29862d7d9a25f5c234d8e909e4063df237665bf09b9  claude-2.1.311-linux-arm64-musl
-1d44b28bc4ac9937d7d3532264baa68a507ce364956a0d4ebb856f331cdee254  codex-package-0.166.0-x86_64-unknown-linux-musl.tar.gz
-7821b77dda2e6283fb1f63f3165177a271da8833e857cf673c6ca1c9db3bfcc6  codex-package-0.166.0-aarch64-unknown-linux-musl.tar.gz
+3bbf75e83de6b58aed28f2cf6e33ad423ec31fd4700a1457b94be557ea5a7c6e  codex-package-0.167.0-x86_64-unknown-linux-musl.tar.gz
+0de261ecf1e7f3028a7952f03fca2093f749277d38590b78bb32f8567756bbb7  codex-package-0.167.0-aarch64-unknown-linux-musl.tar.gz
 e8d5be23bf8f3f69bc3206f3311215c049329cd6afa7c06d733987cc2d33b568  opencode-1.19.5-linux-x64-musl.tar.gz
 3522eccafd30d84a2d770b72a56d4877c576b9072b36a5a9ea0fa30ed82b896e  opencode-1.19.5-linux-arm64-musl.tar.gz
 33e15bcf1624b25cdd2a55813a47a2f95dbe126268203e76aa6a585d1e7b149c  ripgrep-15.2.0-x86_64-unknown-linux-musl.tar.gz
