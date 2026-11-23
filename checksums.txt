@@ -4,5 +4,5 @@
 d8c43bee6cf11b01eb18b95f4d7961092bc40228180808859e70dabb7784c1c9  codex-package-0.171.0-aarch64-unknown-linux-musl.tar.gz
 2a22da39d0b69681272f4daeb51316244eda5c3d606d9e507d61bbf5c1b868a2  opencode-1.19.6-linux-x64-musl.tar.gz
 45407388777dfc1894591c9727c169f202ad92c75757038950630a0fbb12ca97  opencode-1.19.6-linux-arm64-musl.tar.gz
-33e15bcf1624b25cdd2a55813a47a2f95dbe126268203e76aa6a585d1e7b149c  ripgrep-15.2.0-x86_64-unknown-linux-musl.tar.gz
-800b1e7206afe799dfb5a6901f23147cfaabe0e52210538100f61e86e1740915  ripgrep-15.2.0-aarch64-unknown-linux-musl.tar.gz
+54268ab4643c00a290a29b0086066d64b3f56236dd805ec64629a86f9bd29fd0  ripgrep-16.0.0-x86_64-unknown-linux-musl.tar.gz
+374f1886be881e8e8683d7107278f7af1b6017fda75eb97de71f5783f42b0110  ripgrep-16.0.0-aarch64-unknown-linux-musl.tar.gz
